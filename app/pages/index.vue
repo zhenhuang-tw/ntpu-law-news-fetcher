@@ -10,12 +10,6 @@
 
     <div v-else class="news-grid">
       <article v-for="news in newsList" :key="news._id" class="news-card">
-        <div class="image-wrapper">
-          <img 
-            :src="news.coverImage?.url || 'https://via.placeholder.com/300x180?text=NTPU'" 
-            :alt="news.title"
-          />
-        </div>
         
         <div class="content">
           <span class="date">{{ formatDate(news.publishAt) }}</span>
