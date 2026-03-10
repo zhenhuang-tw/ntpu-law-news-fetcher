@@ -1,6 +1,11 @@
 <template>
   <div class="container">
     <h1>國立臺北大學最新公告(法律學院)</h1>
+    <div>
+        <a href="/rss.xml" target="_blank" class="rss-link">
+        訂閱 RSS
+        </a>
+    </div>
 
     <div v-if="pending" class="loading">正在讀取訊息...</div>
 
