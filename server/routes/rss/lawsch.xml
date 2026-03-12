@@ -1,4 +1,4 @@
-// server/routes/rss.xml.ts
+// server/routes/rss/lawsch.xml.ts
 
 export default defineEventHandler(async (event) => {
   try {
