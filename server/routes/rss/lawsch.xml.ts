@@ -54,7 +54,7 @@ export default defineEventHandler(async (event) => {
       <link>${channel.link}</link>
     </image>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${getRequestURL(event).href}" rel="self" type="application/rss+xml" />
+    <atom:link href="https://zhenhuang.tw/labs/ntpu-law-news/rss/lawsch.xml" rel="self" type="application/rss+xml" />
     ${rssItems}
   </channel>
 </rss>`;
