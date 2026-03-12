@@ -1,9 +1,13 @@
 <template>
   <div class="container">
-    <h1>國立臺北大學最新公告(法律學院)</h1>
+    <h1>國立臺北大學最新公告(法律學院系)</h1>
     <div>
-        <a href="/rss.xml" target="_blank" class="rss-link">
-        訂閱 RSS
+        訂閱 RSS: <a href="/rss/lawsch.xml" target="_blank" class="rss-link">
+        院
+        </a>、<a href="/rss/lawdept.xml" target="_blank" class="rss-link">
+        系
+        </a>、<a href="/rss/law.xml" target="_blank" class="rss-link">
+        整合
         </a>
     </div>
 
@@ -17,8 +21,8 @@
       <article v-for="news in newsList" :key="news._id" class="news-card">
         
         <div class="content">
-          <span class="date">{{ formatDate(news.publishAt) }}</span>
-          <h3><NuxtLink :to="`https://new.ntpu.edu.tw/news/${news._id}`" class="title-link">{{ news.title }}</NuxtLink></h3>
+          <span class="date">{{ formatDate(news.publishAt) }}・{{ news.source }}</span>
+          <h3><NuxtLink :to="news.link" class="title-link">{{ news.title }}</NuxtLink></h3>
           <p class="excerpt">{{ stripHtml(news.content).substring(0, 60) }}...</p>
           
           <div class="tags">
@@ -31,13 +35,10 @@
 </template>
 
 <script setup>
-// 1. 呼叫我們之前寫好的 POST API
+// 1. 呼叫我們 POST API
 // Nuxt 3/4 的 useFetch 會自動處理 SSR 與客戶端抓取
-const { data, pending, error } = await useFetch('/api/ntpu-news', {
-  method: 'POST',
-  body: {
-    sitesApproved: 'law_ntpu'
-  }
+const { data, pending, error } = await useFetch('/api/ntpu-law-news', {
+  method: 'POST'
 });
 
 // 2. 取得 API 回傳的 news 陣列
