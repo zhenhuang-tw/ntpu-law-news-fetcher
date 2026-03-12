@@ -2,7 +2,7 @@
   <div class="container">
     <h1>臺北大學法律學院系公告訊息</h1>
     <div style="margin-bottom: 10px;">
-      <p>院網最新訊息（限20則），及系網最新訊息，依發布時間降序列出。</p>  
+      <p>院網最近 20 則訊息，及系網最新訊息，發布時間近者在前。</p>  
       <p><strong>訂閱 RSS：</strong><a href="rss/lawsch.xml" target="_blank" class="rss-link">院</a>、<a href="rss/lawdept.xml" target="_blank" class="rss-link">系</a>、<a href="rss/law.xml" target="_blank" class="rss-link">整合</a></p>
     </div>
 
