@@ -4,7 +4,10 @@ export default defineEventHandler(async (event) => {
   try {
     // 1. 呼叫本站 API (server/api/ntpu-news.post.ts)
     const response = await $fetch('/api/ntpu-news', {
-      method: 'POST'
+      method: 'POST',
+      body: {
+        sitesApproved: 'law_ntpu'
+      }
     });
 
     const items = response.data || [];

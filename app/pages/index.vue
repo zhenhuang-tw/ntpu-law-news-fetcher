@@ -34,7 +34,10 @@
 // 1. 呼叫我們之前寫好的 POST API
 // Nuxt 3/4 的 useFetch 會自動處理 SSR 與客戶端抓取
 const { data, pending, error } = await useFetch('/api/ntpu-news', {
-  method: 'POST'
+  method: 'POST',
+  body: {
+    sitesApproved: 'law_ntpu'
+  }
 });
 
 // 2. 取得 API 回傳的 news 陣列
