@@ -26,6 +26,10 @@
         </div>
       </article>
     </div>
+    <div>
+        <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">資料來源：臺北大學法律學院／系網站 (<a href="https://new.ntpu.edu.tw/law" target="_blank">new.ntpu.edu.tw/law</a>, <a href="https://www.law.ntpu.edu.tw/" target="_blank">www.law.ntpu.edu.tw</a>)</p>
+        <p style="font-size: 0.9rem; color: #666;"><NuxtLink to="https://github.com/zhenhuang-tw/ntpu-law-news-fetcher" class="title-link">Open Source</NuxtLink></p>
+    </div>
   </div>
 </template>
 
