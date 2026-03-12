@@ -1,9 +1,8 @@
 // server/api/ntpu-law-news.post.ts
 import { XMLParser } from 'fast-xml-parser';
 
-export default defineEventHandler(async (event) => {
+export default defineCachedEventHandler(async (_event) => {
   try {
-    // 1. 同時抓取兩個來源
     const [localResponse, externalXml] = await Promise.all([
       $fetch<{ data: any[] }>('/api/ntpu-news', {
         method: 'POST',
@@ -14,7 +13,6 @@ export default defineEventHandler(async (event) => {
       })
     ]);
 
-    // 2. 本站院資料：標注來源
     const localItems = (localResponse.data || []).map((item: any) => ({
       _id: item._id,
       title: item.title,
@@ -25,7 +23,6 @@ export default defineEventHandler(async (event) => {
       source: '院網'
     }));
 
-    // 3. 解析外部之系 RSS
     const parser = new XMLParser({
       ignoreAttributes: false,
       allowBooleanAttributes: true,
@@ -38,13 +35,12 @@ export default defineEventHandler(async (event) => {
       _id: item.guid?.['#text'] ?? item.guid ?? item.link,
       title: item.title ?? '',
       publishAt: new Date(item.pubDate).toISOString(),
-      content: '',        // 系 RSS description 通常為空
-      tags: item.category ? [item.category] : [],  // category 轉為 tags
+      content: '',
+      tags: item.category ? [item.category] : [],
       link: item.link ?? '',
       source: '系網'
     }));
 
-    // 4. 合併並依發布時間降冪排序
     const allItems = [...localItems, ...externalItems].sort(
       (a, b) => new Date(b.publishAt).getTime() - new Date(a.publishAt).getTime()
     );
@@ -58,4 +54,8 @@ export default defineEventHandler(async (event) => {
       data: error
     });
   }
+}, {
+  maxAge: 60 * 60 * 8,
+  name: 'ntpu-law-news',
+  getKey: () => 'ntpu-law-news-merged'
 });

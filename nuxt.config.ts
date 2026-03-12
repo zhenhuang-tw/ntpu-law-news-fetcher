@@ -30,5 +30,14 @@ export default defineNuxtConfig({
 
   nitro: {
     preset: 'cloudflare-pages',
+    routeRules: {
+      '/api/ntpu-law-news': {
+        cache: {
+          maxAge: 60 * 60 * 8,
+          staleMaxAge: 60 * 60 * 8,
+          swr: true,
+        }
+      },
+    }
   }
 })
