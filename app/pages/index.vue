@@ -17,7 +17,7 @@
         
         <div class="content">
           <span class="date">{{ formatDate(news.publishAt) }}・{{ news.source }}</span>
-          <h3><NuxtLink :to="news.link" class="title-link">{{ news.title }}</NuxtLink></h3>
+          <h3><NuxtLink :to="news.link" class="title-link" target="_blank">{{ news.title }}</NuxtLink></h3>
           <p class="excerpt">{{ stripHtml(news.content).substring(0, 60) }}...</p>
           
           <div class="tags">
