@@ -2,8 +2,8 @@
   <div class="container">
     <h1>臺北大學法律學院系公告訊息</h1>
     <div style="margin-bottom: 10px;">
-      <p>院網最近 20 則訊息，及系網最新訊息，發布時間近者在前。</p>  
-      <p><strong>訂閱 RSS：</strong><a href="rss/lawsch.xml" target="_blank" class="rss-link">院</a>、<a href="rss/lawdept.xml" target="_blank" class="rss-link">系</a>、<a href="rss/law.xml" target="_blank" class="rss-link">整合</a></p>
+      <p>院網最近 20 則訊息，及系網最新訊息，發布時間近者在前。本站每 8 小時才會更新一次，最新訊息請自行上院系網站查閱。</p>  
+      <p><strong>訂閱 RSS: </strong><a href="rss/lawsch.xml" target="_blank" class="rss-link">院</a>、<a href="https://www.law.ntpu.edu.tw/rss" target="_blank" class="rss-link">系</a>(直接連結到系網 RSS Feed)、<a href="rss/law.xml" target="_blank" class="rss-link">整合</a></p>
     </div>
 
     <div v-if="pending" class="loading">正在讀取訊息...</div>
