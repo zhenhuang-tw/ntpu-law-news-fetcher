@@ -18,7 +18,7 @@
         
         <div class="content">
           <span class="date">{{ formatDate(news.publishAt) }}</span>
-          <h3>{{ news.title }}</h3>
+          <h3><NuxtLink :to="`https://new.ntpu.edu.tw/news/${news._id}`" class="title-link">{{ news.title }}</NuxtLink></h3>
           <p class="excerpt">{{ stripHtml(news.content).substring(0, 60) }}...</p>
           
           <div class="tags">
@@ -56,6 +56,10 @@ const stripHtml = (html) => {
 </script>
 
 <style scoped>
+.title-link {
+  text-decoration: none;
+  color: inherit;
+}
 .container {
   max-width: 1000px;
   margin: 0 auto;
