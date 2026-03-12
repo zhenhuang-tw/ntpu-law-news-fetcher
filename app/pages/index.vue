@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <h1>國立臺北大學最新公告(法律學院系)</h1>
-    <div>
+    <div style="margin-bottom: 10px;">
         訂閱 RSS: <a href="/rss/lawsch.xml" target="_blank" class="rss-link">
         院
         </a>、<a href="/rss/lawdept.xml" target="_blank" class="rss-link">
